@@ -13,6 +13,9 @@
   [num]
   (roll num 10))
 
+(defn d20 []
+  (first (roll 1 20)))
+
 (defn successes
   [die]
   (cond
