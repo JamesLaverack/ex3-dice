@@ -1,10 +1,10 @@
-(ns dice-roller.exalted
-  (:require [dice-roller.dice :as dice]))
+(ns polyhedra.exalted
+  (:require [polyhedra.dice :as d]))
 
 (defn pool
   "Roll a 'dice pool' of ten-sided dice."
   [num]
-  (repeatedly num (partial dice/d10)))
+  (repeatedly num (partial d/d10)))
 
 (defn successes
   "Determine how many successes the result of a ten-sided dice is in the Exalted RPG system."

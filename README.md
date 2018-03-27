@@ -1,2 +1,3 @@
-# ex3-dice
-Exalted 3rd Edition Dice Roller
+# Polyhedra
+
+General purpose dice roller, with tooling for various tabletop roleplaying games.

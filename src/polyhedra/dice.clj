@@ -1,4 +1,4 @@
-(ns dice-roller.dice)
+(ns polyhedra.dice)
 
 (defn die [size]
   "Roll a single die of a given size"
