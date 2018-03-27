@@ -23,3 +23,16 @@
     (is (= 1 (ex/botch-level [1 3 4])))
     (is (= 4 (ex/botch-level [1 6 1 1 1])))
     (is (= 0 (ex/botch-level [0])))))
+
+(deftest interrogate-test
+  (testing "That botches are detected"
+    (is (= {:polyhedra.exalted/result :polyhedra.exalted/botch
+            :polyhedra.exalted/botch-level 3}
+           (ex/interrogate [3 1 1 1]))))
+  (testing "That failures are detected"
+    (is (= {:polyhedra.exalted/result :polyhedra.exalted/failure}
+           (ex/interrogate [3 3 2 6 4]))))
+  (testing "That successes are detected"
+    (is (= {:polyhedra.exalted/result :polyhedra.exalted/succsess
+            :polyhedra.exalted/successes 4}
+           (ex/interrogate [5 7 3 8 10])))))
