@@ -33,12 +33,15 @@
   [rolls]
   (count (filter one? rolls)))
 
+(defn describe-roll
+  [rolls]
+  (str "Rolled: " (pr-str rolls)
+       " • "
+       (if (botch? rolls)
+         (str "Botch level " (botch-level rolls))
+         (str "Successes " (count-successes rolls)))))
+
 (defn ex
   "Exalted dice roll. Provide the number of dice to roll and get a count of successes, or a botch level"
   [num]  
-  (let [rolls (pool num)]
-    (str "Rolled: " (pr-str rolls)
-         " • "
-         (if (botch? rolls)
-           (str "Botch level " (botch-level rolls))
-           (str "Successes " (count-successes rolls))))))
+  (describe-roll (pool num)))
