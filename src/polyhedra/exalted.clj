@@ -44,11 +44,13 @@
 
 (defn describe-roll
   [rolls]
-  (str "Rolled: " (pr-str rolls)
-       " • "
-       (if (botch? rolls)
-         (str "Botch level " (botch-level rolls))
-         (str "Successes " (count-successes rolls)))))
+  (let [i (interrogate rolls)]
+    (str "Rolled: " (-> rolls seq pr-str)
+         " • "
+         (condp = (::result i)
+           ::success (str "Successes " (count-successes rolls))
+           ::failure (str "Failure")
+           ::botch (str "Botch level " (botch-level rolls))))))
 
 (defn ex
   "Exalted dice roll. Provide the number of dice to roll and get a count of successes, or a botch level"

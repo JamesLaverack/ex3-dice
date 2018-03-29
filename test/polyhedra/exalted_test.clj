@@ -36,3 +36,12 @@
     (is (= {:polyhedra.exalted/result :polyhedra.exalted/success
             :polyhedra.exalted/successes 4}
            (ex/interrogate [5 7 3 8 10])))))
+
+(deftest describe-test
+  (testing "That a roll can be described"
+    (is (= "Rolled: (2 4 7) • Successes 1"
+           (ex/describe-roll [2 4 7])))
+    (is (= "Rolled: (6 2 4) • Failure"
+           (ex/describe-roll [6 2 4])))
+    (is (= "Rolled: (1 1 2 1) • Botch level 3"
+           (ex/describe-roll [1 1 2 1])))))
