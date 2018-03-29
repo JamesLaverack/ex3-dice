@@ -46,7 +46,7 @@
   [rolls]
   (let [i (interrogate rolls)]
     (str "Rolled: " (-> rolls seq pr-str)
-         " • "
+         " \u2022 "
          (condp = (::result i)
            ::success (str "Successes " (count-successes rolls))
            ::failure (str "Failure")
