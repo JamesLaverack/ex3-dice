@@ -36,14 +36,11 @@
 (defn interrogate
   [rolls]
   (cond
-    (botch? rolls)
-    {::result ::botch
-     ::botch-level (botch-level rolls)}
-    (> 0 (count-successes rolls))
-    {::result ::success
-     ::successes (count-successes rolls)}
-    :else
-    {:state ::failure}))
+    (botch? rolls) {::result ::botch
+                    ::botch-level (botch-level rolls)}
+    (< 0 (count-successes rolls)) {::result ::success
+                                   ::successes (count-successes rolls)}
+    :else {::result ::failure}))
 
 (defn describe-roll
   [rolls]

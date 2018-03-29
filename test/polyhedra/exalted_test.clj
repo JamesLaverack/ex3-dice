@@ -33,6 +33,6 @@
     (is (= {:polyhedra.exalted/result :polyhedra.exalted/failure}
            (ex/interrogate [3 3 2 6 4]))))
   (testing "That successes are detected"
-    (is (= {:polyhedra.exalted/result :polyhedra.exalted/succsess
+    (is (= {:polyhedra.exalted/result :polyhedra.exalted/success
             :polyhedra.exalted/successes 4}
            (ex/interrogate [5 7 3 8 10])))))
